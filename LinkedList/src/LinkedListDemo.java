@@ -10,9 +10,13 @@ public class LinkedListDemo {
 		aList.add('A');
 		aList.add('B');
 		aList.add('C');
-		aList.add("DOG");
-		aList.add(100);
 		System.out.println(aList);
+		System.out.println(aList.contains('A'));
+		System.out.println(aList.contains('B'));
+		System.out.println(aList.contains('C'));
+		System.out.println(aList.contains('D'));
+
+		//System.out.println("POP:" + ((LinkedListNode)aList.pop()).getElement());
 	}
 
 }
