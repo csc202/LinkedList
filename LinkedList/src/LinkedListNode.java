@@ -1,29 +1,29 @@
 
-public class LinkedListNode {
-	Object element;
-	LinkedListNode link;
+public class LinkedListNode <T>{
+	T element;
+	LinkedListNode <T> link;
 	
-	public LinkedListNode(Object element) {
+	public LinkedListNode(T element) {
 		super();
 		this.element = element;
 		this.link = null;
 	}
 	
-	public LinkedListNode(Object element, LinkedListNode link) {
+	public LinkedListNode(T element, LinkedListNode <T> link) {
 		super();
 		this.element = element;
 		this.link = link;
 	}
-	public Object getElement() {
+	public T getElement() {
 		return element;
 	}
-	public void setElement(Object element) {
+	public void setElement(T element) {
 		this.element = element;
 	}
-	public LinkedListNode getLink() {
+	public LinkedListNode <T> getLink() {
 		return link;
 	}
-	public void setLink(LinkedListNode link) {
+	public void setLink(LinkedListNode <T>link) {
 		this.link = link;
 	}
 }

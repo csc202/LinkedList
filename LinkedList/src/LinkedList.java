@@ -1,33 +1,45 @@
-public class LinkedList implements LinkedListInterface {
+public class LinkedList <T> implements LinkedListInterface <T> {
 
-	public LinkedListNode list;
+	public LinkedListNode <T> list;
+	public String name;
+	public int count=0;
 
 	public LinkedList() {
+		this.name = "Linked List";
+		list = null;
+	}
+	
+	public LinkedList(String name) {
+		this.name = name;
 		list = null;
 	}
 
 	@Override
-	public void add(Object element) {
+	public void add(T element) {
 		// add first element
-		LinkedListNode newNode = new LinkedListNode(element, list);
+		LinkedListNode <T> newNode = new LinkedListNode<T>(element, list);
 		list = newNode;
+		count++;
 	}
 
 	@Override
-	public Object remove(Object elememt) {
-
+	public T remove(T elememt) {
+		count--;
 		return null;
 	}
 
-	public Object pop() {
-		Object temp = list;
+
+	public T pop() {
+		T temp = list.getElement();
 		list = list.getLink();
+		count--;
 		return temp;
 	}
 
+	
 	@Override
-	public boolean contains(Object element) {
-		LinkedListNode current = list;
+	public boolean contains(T element) {
+		LinkedListNode<T> current = list;
 		if (!isEmpty()) {
 			while (current != null) {
 				if (current.getElement().equals(element))
@@ -47,9 +59,21 @@ public class LinkedList implements LinkedListInterface {
 			return false;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int size() {
+		return this.count;
+	}
+	
 	public String toString() {
 		String out = "";
-		LinkedListNode temp;
+		LinkedListNode<T> temp;
 		temp = list;
 		while (temp != null) {
 			out += temp.getElement() + "\n";
